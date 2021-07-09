@@ -1,0 +1,41 @@
+◯ 1. upload file
+
+╳ 2. lauch - drilling .dri
+
+╳ 3. lauch export -  .db  mapping PDM
+
+◯  4. conflicts - update
+
+╳ 5. exports to PDM
+
+
+
+╳ 1.[Frontend] Developing wizard system - 5days
+
+◯ 2.[Frontend] Page for loading file to fileshare.
+-->We need a UI part for input file manipulation: loading to fileshare, observe files, check status
+	
+	(1)loading to fileshare - 5 days
+	(2)observe files - 3days
+	(3)check status - 3days
+
+╳ 3.[Frontend] Page for processing drilling info file - 5days
+-->We need to have ui part with page components to launch processing drilling info file and track it status
+	(1) button - 2days
+	(2) track status  - 3days
+	
+╳ 4.[Frontend] Page for mapping PDM tables
+-->We need a UI part to have possibility to launch mapping DRI File Spec records to PDM format and track it status
+	(1) button - 2days
+	(2) track status  - 3days
+	
+◯ 5.[Frontend] Page for resolving mapping conflicts
+-->We need a UI part to check and resolve mapping conflicts between records in intermediate h2 and PDM databased
+	(1) Check conflicts - 3 days
+	(2) Show conflicts - 3days
+	(3) Update conflicts - 3days
+ 
+╳ 6.[Frontend] Page for exporting to PDM database
+-->We need a UI part to launch exporting records from intermediate h2 file to PDM database
+	(1) button - 2days
+	(2) track status  - 3days

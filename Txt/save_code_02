@@ -1,0 +1,55 @@
+<!-- This is default panel include well list of field -->
+<div *ngIf="forecastingShareData.pageObj.searchStatus === 0" class="well-list">
+  <mat-accordion *ngFor="let i of forecastingShareData.pageObj.fieldList">
+    <mat-expansion-panel *ngIf="i.wellNumber <= 0 ? false : true"
+      (opened)="panelOpenState = true; openWellListAction.openPanelOfWellList(i)" (closed)="
+        forecastingShareData.pageObj.searchStatus === 1 ? stopEventAction.stopEvent($event) : (panelOpenState = false)
+      ">
+      <!-- Field Info -->
+      <mat-expansion-panel-header>
+        <mat-panel-title class="field-header-part">
+          <section class="title-well-number">
+            <mat-checkbox [checked]="i.selected" [(ngModel)]="i.selected" [indeterminate]="i.indeterminateValue"
+              (click)="stopEventAction.stopEvent($event)" (change)="selectedAllWellAction.selectAll(i)"
+              [disabled]="i.wellNumber <= 0 ? true : false">
+              {{ i.wellNumber ? i.wellNumber : " 0" }}
+              {{
+              i.wellNumber && i.wellNumber === 1 ? "well" : "wells"
+              }}</mat-checkbox>
+          </section>
+          <label class="title-field" [innerHTML]="i.fieldName | safeHtml"></label>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!-- Well Info -->
+      <mat-selection-list *ngFor="let pool of i.poolList">
+        <div *ngIf="pool.poolName" class="pool-title" [innerHTML]="pool.poolName | safeHtml"></div>
+        <mat-list-option [checkboxPosition]="before" *ngFor="let w of pool.wellList"
+          (click)="selectedSingleWellAction.selectedSingleWell(i, w)" [(selected)]="w.selected" [value]="w">
+          <div class="name-container" style="padding-top:3px">
+            <div [ngClass]="w.isHighlight?'name-part red-text':'name-part'">
+              <div class="well-type-name-container">
+                <label class="well-type-icon">
+                  <img *ngIf="w.wellTypeId"
+                    [src]="w.wellTypeId==WellTypes.OIL?'assets/images/well-list/oil.svg':(w.wellTypeId==WellTypes.GAS?'assets/images/well-list/gas.svg':'')" />
+                </label>
+                <label class="well-name-list" [innerHTML]="w.wellName | safeHtml"></label>
+              </div>
+
+              <label *ngIf="w.accumulativeActual">{{ w.accumulativeActual }}/{{ w.accumulativeForecast }}</label>
+            </div>
+            <div [ngClass]="w.isHighlight?'name-part red-text':'name-part'">
+              <label>{{ w.methodName }}</label>
+              <div *ngIf="w.accuracyNumber">
+                <img class="accuracy-rate-icon"
+                  [src]="w.isHighlight?'assets/images/well-list/accuracy-red.svg':'assets/images/accuracy-rate.svg'" />
+                <label>{{ w.accuracyNumber }}</label>
+                <label *ngIf="w.accuracyNumber && w.accuracyNumber !== '-'">%</label>
+              </div>
+            </div>
+          </div>
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,15 @@
+---1 [frontend] saving forecasting scenario to PDM
+- develop the page components for saving forecasting scenario to PDM
+-1 button for saving forecasting scenario to PDM
+-2 scenario name edit box
+-3 page for well selection, include workflow wells and manual wells
+-4 "OK" and "Cancel"
+
+
+
+----2[frontend] generate the well list for selection
+- generate the well list for user to select wells which will be saved to PDM
+- get wells from database and generate the list on UI page, 
+include wells from automatic workflow and manually forecasting.
+ all wells from workflow having high accuracy and all wells 
+ from manual operation are selected as default.

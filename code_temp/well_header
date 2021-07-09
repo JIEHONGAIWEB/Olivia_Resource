@@ -1,0 +1,16 @@
+<div name="list-header">
+    <div class="field-header-part-search"
+        (click)="selectedAllWellAction.selectAllActionBySearchPanel(i, 1)">
+        <div class="title-well-number">
+            <mat-checkbox [checked]="i.selected" [(ngModel)]="i.selected"
+                [indeterminate]="i.indeterminateValue" (click)="stopEventAction.stopEvent($event)"
+                (change)="selectedAllWellAction.selectAllActionBySearchPanel(i)"
+                [disabled]="i.wellNumber <= 0 ? true : false">
+                {{ i.wellNumber ? i.wellNumber : " 0" }}
+                {{
+                i.wellNumber && i.wellNumber === 1 ? "well" : "wells"
+                }}</mat-checkbox>
+        </div>
+        <label class="title-field-search" [innerHTML]="i.fieldName | safeHtml"></label>
+    </div>
+</div>

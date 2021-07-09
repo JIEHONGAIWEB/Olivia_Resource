@@ -1,0 +1,21 @@
+1. switchModeType
+// Option_02
+    // let name = 'Production Forecast.png';
+    // let imgUrl = this.pageClass.pageObj.chartInstance.getConnectedDataURL({
+    //   type: 'png',
+    //   pixelRatio: 1,
+    //   backgroundColor: '#fff',
+    // });
+    // this.saveImgAction.saveImg(imgUrl, name, 'png');
+	
+	
+	 // if (allSelectedIds.length > 256) {
+    //   let message = {
+    //     severity: Message.ERROR,
+    //     summary: Message.ERROR_MESSAGE,
+    //     detail: 'The selected well should not be more than 256 wells.'
+    //   };
+    //   this.messageService.clear();
+    //   this.messageService.add(message);
+    //   return;
+    // }

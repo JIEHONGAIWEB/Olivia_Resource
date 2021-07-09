@@ -1,0 +1,27 @@
+Document - Manual forecasting 
+
+1. Add "Custom method" in the Forecast method list 
+	Button - "Customise the selected method"
+	List - Select method list
+
+2. Show selecte period : "dates of matching period"
+	
+	- Change param
+	
+	Recalculate
+	Save
+	Delete
+	Reset
+	
+For Frontend implement step
+
+1. Add "Customise the selected method" Button
+2. After click button "Show list of method"
+
+3. Recalculate
+
+4. Save
+5. Reset
+6. Delete
+	
+	

@@ -1,0 +1,43 @@
+<div name="list-content" class="sub-panel">
+                    <div *ngIf="pool.poolName" class="pool-title-search" [innerHTML]="pool.poolName | safeHtml"></div>
+                    <div *ngFor="let w of pool.wellList">
+                        <div class="name-container-search"
+                            (click)="selectedSingleWellAction.selectSingleWellActionBySearchPanel(i, w, 1)">
+                            <mat-checkbox style="display:flex;width: 45px;align-items: center;justify-content:center"
+                                [checked]="w.selected" [(ngModel)]="w.selected"
+                                (click)="stopEventAction.stopEvent($event)"
+                                (change)="updateDataAction.changeSingleWellCheckBoxValue($event, i, w, 0)">
+                            </mat-checkbox>
+
+                            <div class="well-name-container">
+                                <div [ngClass]="w.isHighlight?'name-part-search red-text':'name-part-search'">
+                                    <div class="well-type-name-container">
+                                        <label class="well-type-icon">
+                                            <img *ngIf="w.wellTypeId"
+                                                [src]="w.wellTypeId==WellTypes.OIL?'assets/images/well-list/oil.svg':(w.wellTypeId==WellTypes.GAS?'assets/images/well-list/gas.svg':'')" />
+                                        </label>
+                                        <label class="well-name-list-search"
+                                            [innerHTML]="w.wellName | safeHtml"></label>
+
+
+                                    </div>
+                                    <label *ngIf="w.accumulativeActual">{{ w.accumulativeActual }}/{{
+                                        w.accumulativeForecast
+                                        }}</label>
+
+                                </div>
+
+                                <div [ngClass]="w.isHighlight?'name-part-search red-text':'name-part-search'">
+                                    <label>{{ w.methodName }}</label>
+
+                                    <div *ngIf="w.accuracyNumber">
+                                        <img class="accuracy-rate-icon-search"
+                                            [src]="w.isHighlight?'assets/images/well-list/accuracy-red.svg':'assets/images/accuracy-rate.svg'" />
+                                        <label>{{ w.accuracyNumber }}</label>
+                                        <label *ngIf="w.accuracyNumber && w.accuracyNumber !== '-'">%</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
